@@ -1,0 +1,35 @@
+{
+  "label": "Pinterest Ads",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/pinterest_icon.png",
+    "tagline": "Dig into campaigns and keywords, optimize spend and allocation, and maximize channel ROI for Pinterest Ads."
+  },
+
+  "constants": {
+    "CONNECTION_NAME": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "FACEBOOK_SCHEMA": {
+      "label": "Pinterest Schema Name"
+    },
+    "CONFIG_PROJECT_NAME": {
+      "label": "Config Project Name"
+    }
+  },
+  "models": [
+    {
+      "name": "block_pinterest_ads",
+      "connection_constant": "CONNECTION_NAME"
+    }
+  ],
+  "auxiliary_projects": [
+    {
+      "git_uri": "git://github.com/looker/block-pinterest-ads-config.git",
+      "git_ref": "",
+      "label": "Pinterest Ads Config",
+      "constant_name": "CONFIG_PROJECT_NAME"
+    }
+  ]
+}
