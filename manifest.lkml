@@ -9,14 +9,13 @@ remote_dependency: app-marketing-common {
 # LookML to map the ETL and data warehouse for Pinterest Ads
 remote_dependency: app-marketing-pinterest-ads-adapter {
   url: "git://github.com/looker/app-marketing-pinterest-ads-fivetran-bigquery"
-  ref: "6ba76712f3d3eb3733db2e0b63f7da32065ab808"
+  ref: "d54beb03fb06ee196c46ef34ea49628b6af4137c"
 }
 
 remote_dependency: app-marketing-pinterest-ads {
   url: "git://github.com/looker/app-marketing-pinterest-ads"
   ref: "a4c18ce343b5502bec3e22aac876b3b966d2b164"
 }
-
 
 local_dependency: {
   project: "@{CONFIG_PROJECT_NAME}"
@@ -32,11 +31,11 @@ constant: CONFIG_PROJECT_NAME {
 
 # TODO: Update connection
 constant: CONNECTION_NAME {
-  value: "looker_application"
+  value: "looker_app_2"
   export: override_required
 }
 
 constant: PINTEREST_SCHEMA {
-  value: "pinterest_ads"
+  value: "pinterest_generated"
   export: override_required
 }
