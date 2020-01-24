@@ -27,7 +27,7 @@
   "auxiliary_projects": [
     {
       "git_uri": "git://github.com/looker/block-pinterest-ads-config.git",
-      "git_ref": "ee000ed4ad78747c519a56fbb29ee014ffd056cb",
+      "git_ref": "3d581d5211a7f54e8f10f6b33597d24608a7e064",
       "label": "Pinterest Ads Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
