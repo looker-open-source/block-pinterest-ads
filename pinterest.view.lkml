@@ -1,11 +1,9 @@
+# Pinterest Ads configuration for Marketing Analytics by Looker
+
 include: "//@{CONFIG_PROJECT_NAME}/*.view"
-
-# pinterest Ads configuration for Marketing Analytics by Looker
-
 include: "//app-marketing-pinterest-ads-adapter/*.view"
 include: "//app-marketing-pinterest-ads/*.view"
 
-# TODO: update pinterest Ads schema
 datagroup: pinterest_ads_etl_datagroup {
   sql_trigger: SELECT COUNT(*) FROM `@{PINTEREST_SCHEMA}.campaign_report` ;;
   max_cache_age: "24 hours"
@@ -14,6 +12,7 @@ datagroup: pinterest_ads_etl_datagroup {
 view: pinterest_ads_config {
   extension: required
 
+# Should remain hidden as it's not intended to be used as a column.
   dimension: pinterest_ads_schema {
     hidden: yes
     sql:@{PINTEREST_SCHEMA};;
