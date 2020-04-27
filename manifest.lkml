@@ -14,7 +14,7 @@ remote_dependency: app-marketing-pinterest-ads-adapter {
 
 remote_dependency: app-marketing-pinterest-ads {
   url: "git://github.com/looker/app-marketing-pinterest-ads"
-  ref: "a4c18ce343b5502bec3e22aac876b3b966d2b164"
+  ref: "e872b5f047a6aceef25a3620905e13385b5460a4"
 }
 
 local_dependency: {
