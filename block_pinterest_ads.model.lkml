@@ -15,12 +15,15 @@ include: "*.dashboard"
 
 explore: pinterest_period_comparison {
   extends: [pinterest_period_comparison_config]
-  hidden: yes
+  hidden: no
+  group_label: "Block Pinterest Ads"
 }
 
 # Daily Ad Aggregation
 explore: pinterest_ad_impressions_ad {
   extends: [pinterest_ad_impressions_ad_config]
+  hidden: no
+  group_label: "Block Pinterest Ads"
 }
 
 # Daily Ad Group Aggregation
@@ -31,6 +34,8 @@ explore: pinterest_ad_impressions_ad_group {
 # Daily Campaign Aggregation
 explore: pinterest_ad_impressions_campaign {
   extends: [pinterest_ad_impressions_campaign_config]
+  hidden: no
+  group_label: "Block Pinterest Ads"
 }
 
 # Daily Account Aggregation
