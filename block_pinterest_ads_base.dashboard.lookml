@@ -1,6 +1,7 @@
 - dashboard: block_pinterest_ads_base
   extension: required
   layout: newspaper
+  preferred_viewer: dashboards-next
   embed_style:
     background_color: "#ffffff"
     show_title: false
