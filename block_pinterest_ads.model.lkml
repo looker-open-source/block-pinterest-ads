@@ -1,44 +1,27 @@
-connection: "@{CONNECTION_NAME}"
-include: "//@{CONFIG_PROJECT_NAME}/*.view"
-include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
+connection: "4mile_snowflake_db_fivetran"
 
-include: "//app-marketing-common/ad_metrics_base_template.view"
-include: "//app-marketing-common/date_base.view"
-include: "//app-marketing-common/date_primary_key_base.view"
-include: "//app-marketing-common/pdt_base.view"
-include: "//app-marketing-common/period_base.view"
-include: "//app-marketing-common/ad_metrics_parent_comparison_base.view"
-include: "//app-marketing-common/ad_metrics_period_comparison_base.view"
+## Include Explores
+include: "/explores/pinterest_account.explore"
+include: "/explores/pinterest_account.explore"
+include: "/explores/pinterest_account_date_fact.explore"
+include: "/explores/pinterest_ad_date_fact.explore"
+include: "/explores/pinterest_ad_group_date_fact.explore"
+include: "/explores/pinterest_campaign_date_fact.explore"
+include: "/explores/pinterest_period_fact.explore"
 
-include: "*.view"
-include: "*.dashboard"
+## Include Dashboards
+include: "/dashboards/block_pinterest_ads_base.dashboard"
+include: "/dashboards/pinterest_ads_clicks.dashboard"
+include: "/dashboards/pinterest_ads_conversions.dashboard"
+include: "/dashboards/pinterest_ads_impressions.dashboard"
+include: "/dashboards/pinterest_ads_overview.dashboard"
+include: "/dashboards/pinterest_ads_spend.dashboard"
 
-explore: pinterest_period_comparison {
-  extends: [pinterest_period_comparison_config]
-  hidden: no
-  group_label: "Block Pinterest Ads"
-}
 
-# Daily Ad Aggregation
-explore: pinterest_ad_impressions_ad {
-  extends: [pinterest_ad_impressions_ad_config]
-  hidden: no
-  group_label: "Block Pinterest Ads"
-}
 
-# Daily Ad Group Aggregation
-explore: pinterest_ad_impressions_ad_group {
-  extends: [pinterest_ad_impressions_ad_group_config]
-}
+datagroup: pinterest_ads_etl_datagroup  {
+  label: "Pinterest ETL"
 
-# Daily Campaign Aggregation
-explore: pinterest_ad_impressions_campaign {
-  extends: [pinterest_ad_impressions_campaign_config]
-  hidden: no
-  group_label: "Block Pinterest Ads"
-}
-
-# Daily Account Aggregation
-explore: pinterest_ad_impressions {
-  extends: [pinterest_ad_impressions_config]
+  max_cache_age: "24 hours"
+ # sql_trigger: SELECT max(id) FROM my_tablename ;;
 }
