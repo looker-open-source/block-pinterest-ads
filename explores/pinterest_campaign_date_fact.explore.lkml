@@ -1,5 +1,7 @@
 include: "/views/*/*.view.lkml"
 include: "*.explore"
+include: "/views/*.view.lkml"
+
 explore: pinterest_campaign_date_fact {
   persist_with: pinterest_ads_etl_datagroup
   extends: [pinterest_account_date_fact, pinterest_campaign_join]

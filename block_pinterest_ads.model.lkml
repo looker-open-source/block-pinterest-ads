@@ -1,8 +1,7 @@
 connection: "4mile_snowflake_db_fivetran"
 
 ## Include Explores
-include: "/explores/pinterest_account.explore"
-include: "/explores/pinterest_account.explore"
+
 include: "/explores/pinterest_account_date_fact.explore"
 include: "/explores/pinterest_ad_date_fact.explore"
 include: "/explores/pinterest_ad_group_date_fact.explore"

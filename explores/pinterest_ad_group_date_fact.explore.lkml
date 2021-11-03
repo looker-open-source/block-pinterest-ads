@@ -1,5 +1,6 @@
 include: "/views/*/*.view.lkml"
-include: "*.explore"
+include: "adapter-explores/*.explore"
+include: "/views/*.view.lkml"
 
 explore: pinterest_ad_group_date_fact {
   persist_with: pinterest_ads_etl_datagroup

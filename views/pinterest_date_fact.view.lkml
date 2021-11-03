@@ -1,4 +1,4 @@
-include: "helper_views/*.view.lkml"
+include: "adapter/*.view.lkml"
 view: pinterest_date_fact {
   extends: [pinterest_ad_metrics_base]
 

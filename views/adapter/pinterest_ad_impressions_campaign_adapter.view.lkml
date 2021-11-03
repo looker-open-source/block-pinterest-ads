@@ -12,9 +12,10 @@ view: pinterest_ad_impressions_campaign_adapter {
     hidden: yes
     sql: CAST(${TABLE}.campaign_id as STRING) ;;
   }
-
   dimension_group: date {
-    hidden: yes
     type: time
+    hidden: yes
+    intervals: [day,quarter,month]
+    sql: ${TABLE}.date ;;
   }
 }

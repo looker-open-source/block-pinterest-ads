@@ -1,6 +1,6 @@
-include: "pinterest_ad_impressions_adapter.view.lkml"
+include: "*.view.lkml"
 view: pinterest_ad_impressions_ad_group_adapter {
-  extends: [pinterest_ad_impressions_adapter]
+  extends: [pinterest_ad_impressions]
   sql_table_name: {{ fact.pinterest_ads_schema._sql }}.ad_group_report ;;
 
   dimension: ad_group_id {
@@ -13,8 +13,9 @@ dimension: ad_group_id_string {
   sql: CAST(${TABLE}.ad_group_id as STRING) ;;
 }
 
-dimension: _date {
-  type: date
+dimension_group: date {
+  type: time
+  intervals: [day,quarter,month]
   sql: ${TABLE}.date ;;
 }
 

@@ -17,5 +17,9 @@ view: pinterest_ad_impressions_ad_adapter {
     hidden: yes
   }
 
-
+  dimension_group: date {
+    type: time
+    intervals: [day,quarter,month]
+    sql: ${TABLE}.date ;;
+  }
 }

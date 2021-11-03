@@ -1,4 +1,6 @@
-view: pinterest_ad_impressions_adapter {
+include: "*.view"
+view: pinterest_ad_impressions {
+  extends: [pinterest_ad_metrics_base]
   sql_table_name: {{ fact.pinterest_ads_schema._sql }}.advertiser_report ;;
 
   dimension: account_id {
@@ -54,6 +56,13 @@ view: pinterest_ad_impressions_adapter {
     type: number
     sql: 0 ;;
     hidden: yes
+  }
+
+  dimension_group: date {
+    type: time
+    hidden: yes
+    intervals: [day,quarter,month]
+    sql: ${TABLE}.date ;;
   }
 
 }

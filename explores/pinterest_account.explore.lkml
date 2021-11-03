@@ -1,1 +1,0 @@
-explore: pinterest_account {}
