@@ -28,8 +28,7 @@ explore: pinterest_campaign_date_fact {
   join: campaign {
     from: pinterest_campaign
     view_label: "Campaign"
-    sql_on: ${fact.campaign_id} = ${campaign.campaign_id} AND
-      ${fact.date_date} = ${campaign._date} ;;
+    sql_on: ${fact.campaign_id} = ${campaign.campaign_id};;
     relationship: many_to_one
   }
 

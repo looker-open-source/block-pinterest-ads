@@ -6,7 +6,7 @@ view: pinterest_campaign_date_fact {
   derived_table: {
     datagroup_trigger: pinterest_ads_etl_datagroup
     explore_source: pinterest_ad_impressions_campaign_adapter {
-      column: date { field: fact.date_date }
+      column: _date { field: fact.date_date }
       column: account_id { field: fact.account_id }
       column: campaign_id {field: fact.campaign_id}
       column: average_position {field: fact.weighted_average_position}

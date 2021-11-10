@@ -1,5 +1,12 @@
 view: pinterest_campaign {
-  sql_table_name: @{PINTEREST_SCHEMA}.campaign_history ;;
+  derived_table:
+  {
+    datagroup_trigger: pinterest_ads_etl_datagroup
+
+    sql: SELECT a.* FROM
+         @{PINTEREST_SCHEMA}.campaign_history a
+         INNER JOIN (SELECT id AS campaign_id,max(updated_time) AS latest FROM @{PINTEREST_SCHEMA}.campaign_history GROUP BY 1)b
+         ON a.id = b.campaign_id AND updated_time = latest;;}
 
   dimension: account_id {
     type: string
