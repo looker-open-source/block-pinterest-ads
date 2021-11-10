@@ -24,7 +24,7 @@ view: pinterest_ad_key_base {
   extension: required
 
   dimension: ad_key_base {
-    hidden: yes
+   hidden: yes
     sql:
       {% if _dialect._name == 'snowflake' %}
         ${ad_group_key_base} || '-' || TO_CHAR(${ad_id})

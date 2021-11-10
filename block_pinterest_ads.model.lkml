@@ -17,7 +17,6 @@ include: "/explores/pinterest_period_fact.explore"
 #include: "/dashboards/pinterest_ads_spend.dashboard"
 
 
-
 datagroup: pinterest_ads_etl_datagroup  {
   label: "Pinterest ETL"
 

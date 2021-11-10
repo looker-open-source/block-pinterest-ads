@@ -16,24 +16,30 @@ dimension: cost {
 }
 
 
-dimension: clicks {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.clicks ;;
-}
+  dimension: clicks {
+    type: number
+    sql: ${TABLE}.clickthrough_1;;
+    hidden: yes
+  }
 
-dimension: conversions {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.conversions ;;
-}
+  dimension: conversions {
+    type: number
+    sql: ${TABLE}.total_conversions;;
+    hidden: yes
+  }
+
+  dimension: impressions {
+    type: number
+    sql: ${TABLE}.impression_1 ;;
+    hidden: yes
+  }
 
 
-dimension: impressions {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.impressions ;;
-}
+  dimension: weighted_average_position {
+    type: number
+    sql: 0 ;;
+    hidden: yes
+  }
 
 dimension: click_rate {
   hidden: yes

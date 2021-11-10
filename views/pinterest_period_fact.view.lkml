@@ -34,7 +34,6 @@ view: pinterest_period_fact {
   dimension: key_base {
     hidden: yes
     sql:
-           {% if _dialect._name == 'snowflake' %}
               TO_CHAR(${account_id})
                 {% if ( campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query %}
                   || '-' || TO_CHAR(${campaign_id})
@@ -47,35 +46,7 @@ view: pinterest_period_fact {
                 {% elsif (keyword._in_query or fact.keyword_id._in_query) %}
                   || '-' || TO_CHAR(${keyword_id})
                 {% endif %}
-            {% elsif _dialect._name == 'redshift' %}
-              CAST(${account_id} AS VARCHAR)
-                {% if ( campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query) %}
-                  || '-' || CAST(${campaign_id} AS VARCHAR)
-                {% endif %}
-                {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query) %}
-                  || '-' || CAST(${ad_group_id} AS VARCHAR)
-                {% endif %}
-                {% if (ad._in_query or fact.ad_id._in_query) %}
-                  '-' || CAST(${ad_id} AS VARCHAR)
-                {% elsif (keyword._in_query or fact.keyword_id._in_query) %}
-                  || '-' || CAST(${keyword_id} AS VARCHAR)
-                {% endif %}
-            {% else %}
-              CONCAT(
-              CAST(${account_id} AS STRING)
-                {% if (campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query) %}
-                  ,"-", CAST(${campaign_id} AS STRING)
-                {% endif %}
-                {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query) %}
-                  ,"-", CAST(${ad_group_id} AS STRING)
-                {% endif %}
-                {% if (ad._in_query or fact.ad_id._in_query) %}
-                  ,"-", CAST(${ad_id} AS STRING)
-                {% elsif (keyword._in_query or fact.keyword_id._in_query) %}
-                  ,"-", CAST(${keyword_id} AS STRING)
-                {% endif %}
-              )
-              {% endif %};;
+           ;;
   }
   dimension: primary_key {
     primary_key: yes
