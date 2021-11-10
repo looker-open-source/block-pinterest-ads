@@ -4,11 +4,18 @@ include: "/views/*.view.lkml"
 
 explore: pinterest_ad_group_date_fact {
   persist_with: pinterest_ads_etl_datagroup
-  extends: [pinterest_account_date_fact, pinterest_ad_group_join]
+  extends: [pinterest_account_date_fact]
   from: pinterest_ad_group_date_fact
   view_name: fact
   label: "Ad Group This Period"
   view_label: "Ad Group This Period"
+  join: account {
+    from: pinterest_account
+    view_label: "Account"
+    sql_on: ${fact.account_id} = ${account.account_id} AND
+      ${fact.date_date}_date} = ${account._date} ;;
+    relationship: many_to_one
+  }
   join: last_fact {
     from: pinterest_ad_group_date_fact
     view_label: "Ad Group Last Period"

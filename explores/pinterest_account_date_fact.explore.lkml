@@ -2,7 +2,7 @@ include: "/views/*/*.view.lkml"
 include: "/views/*.view.lkml"
 explore: pinterest_account_date_fact {
   persist_with: pinterest_ads_etl_datagroup
-  hidden: yes
+ # hidden: yes
   from: pinterest_account_date_fact
   view_name: fact
   label: "Account This Period"

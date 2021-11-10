@@ -1,6 +1,6 @@
 include: "*.view"
 view: pinterest_ad_impressions {
-  extends: [pinterest_ad_metrics_base]
+  extends: [pinterest_ad_metrics_base,period_base]
   sql_table_name: {{ fact.pinterest_ads_schema._sql }}.advertiser_report ;;
 
   dimension: account_id {

@@ -1,6 +1,6 @@
 include: "pinterest_ad_impressions_ad_group_adapter.view.lkml"
 view: pinterest_ad_impressions_ad_adapter {
-  extends: [pinterest_ad_impressions_ad_group_adapter]
+  extends: [pinterest_ad_impressions_ad_group_adapter,period_base]
   sql_table_name: {{ fact.pinterest_ads_schema._sql }}.pin_promotion_report ;;
 
   dimension: ad_id {
