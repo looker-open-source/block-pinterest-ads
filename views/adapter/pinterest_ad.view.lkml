@@ -43,13 +43,13 @@ view: pinterest_ad {
   dimension: creative_final_urls_clean {
     hidden: yes
     type: string
-    sql: REGEXP_EXTRACT(${creative_final_urls}, r'\"([^\"]*)\"') ;;
+    sql:  SPLIT_PART(REGEXP_REPLACE(destination_url, '^http[s]?://(www\.)?|^www\.', '', 1), '?', 1) ;;
   }
 
   dimension: display_url {
     label: "Destination Url"
     type: string
-    sql: SUBSTR(REGEXP_EXTRACT(${creative_final_urls}, r'^https?:\/\/(.*)\?'), 0, 50) ;;
+    sql: SPLIT_PART(REGEXP_REPLACE(destination_url, '^http[s]?://(www\.)?|^www\.', '', 1), '?', 1) ;;
     link: {
       url: "{{ creative_final_urls_clean }}"
       label: "Landing Page"

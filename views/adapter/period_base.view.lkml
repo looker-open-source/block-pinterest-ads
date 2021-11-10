@@ -32,7 +32,7 @@ view: period_base {
   dimension: in_date_range {
     hidden: yes
     type: yesno
-    sql: {% condition date_range %}CAST(${date_raw} AS TIMESTAMP){% endcondition %} ;;
+    sql: {% condition date_range %}(${date_raw} ){% endcondition %} ;;
   }
 
   dimension: date_range_day_of_range_prior {
@@ -96,7 +96,7 @@ view: period_base {
     convert_tz: no
     label_from_parameter: period
     group_label: "Event"
-    sql: TIMESTAMP({% if period._parameter_value contains "day" %}
+    sql: ({% if period._parameter_value contains "day" %}
         {% if period._parameter_value == "'7 day'" %}${date_date_7_days_prior}
         {% elsif period._parameter_value == "'28 day'" %}${date_date_28_days_prior}
         {% elsif period._parameter_value == "'91 day'" %}${date_date_91_days_prior}
@@ -115,7 +115,7 @@ view: period_base {
     convert_tz: no
     label_from_parameter: period
     group_label: "Event"
-    sql:TIMESTAMP ({% if period._parameter_value contains "day" %}
+    sql: ({% if period._parameter_value contains "day" %}
         {% if period._parameter_value == "'7 day'" %}DATEADD('day',7,${date_period})
         {% elsif period._parameter_value == "'28 day'" %}DATEADD('day',28,${date_period})
         {% elsif period._parameter_value == "'91 day'" %}DATEADD('day',91,${date_period})
