@@ -1,7 +1,7 @@
 include: "*.view.lkml"
 view: pinterest_ad_impressions_ad_group_adapter {
   extends: [pinterest_ad_impressions]
-  sql_table_name: {{ fact.pinterest_ads_schema._sql }}.ad_group_report ;;
+  sql_table_name: @{PINTEREST_SCHEMA}.ad_group_report ;;
 
   dimension: ad_group_id {
     hidden: yes

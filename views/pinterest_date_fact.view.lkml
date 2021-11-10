@@ -3,7 +3,7 @@ view: pinterest_date_fact {
   extends: [pinterest_ad_metrics_base]
 
   derived_table: {
-    explore_source: pinterest_ad_impressions {
+    explore_source: pinterest_ad_impressions_ad_adapter {
       column: date_period { field: fact.date_period }
       column: average_position {field: fact.weighted_average_position}
       column: clicks {field: fact.total_clicks }

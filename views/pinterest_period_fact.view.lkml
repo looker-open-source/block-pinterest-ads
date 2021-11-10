@@ -90,4 +90,4 @@ view: pinterest_period_fact {
       {% endif %} ;;
   }
 
-  }
+}

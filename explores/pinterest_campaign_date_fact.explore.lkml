@@ -4,7 +4,7 @@ include: "/views/*.view.lkml"
 
 explore: pinterest_campaign_date_fact {
   persist_with: pinterest_ads_etl_datagroup
-  extends: [pinterest_account_date_fact, pinterest_campaign_join]
+  extends: [pinterest_account_date_fact]
   from: pinterest_campaign_date_fact
   view_name: fact
   label: "Campaign This Period"
@@ -24,4 +24,13 @@ explore: pinterest_campaign_date_fact {
       ${fact.date_date} = ${parent_fact.date_date};;
     relationship: many_to_one
   }
+
+  join: campaign {
+    from: pinterest_campaign
+    view_label: "Campaign"
+    sql_on: ${fact.campaign_id} = ${campaign.campaign_id} AND
+      ${fact.date_date} = ${campaign._date} ;;
+    relationship: many_to_one
+  }
+
 }

@@ -61,16 +61,3 @@ view: pinterest_ad {
     sql: ${TABLE}.destination_url ;;
   }
 }
-
-explore: pinterest_ad_join {
-  extension: required
-  join: ad {
-    from: pinterest_ad
-    view_label: "Ad"
-    sql_on: ${fact.ad_id_string} = ${ad.ad_id} AND
-              ${fact.ad_group_id_string} = ${ad.ad_group_id} AND
-              ${fact._date} = ${ad._date} ;;
-    relationship:  many_to_one
-  }
-
-}

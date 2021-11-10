@@ -48,16 +48,3 @@ view: pinterest_campaign {
     sql: ${TABLE}.campaign_type ;;
   }
 }
-
-explore: pinterest_campaign_join {
-  extension: required
-
-  join: campaign {
-    from: pinterest_campaign
-    view_label: "Campaign"
-    sql_on: ${fact.campaign_id} = ${campaign.campaign_id} AND
-      ${fact.account_id} = ${campaign.account_id} AND
-      ${fact._date} = ${campaign._date} ;;
-    relationship: many_to_one
-  }
-}
