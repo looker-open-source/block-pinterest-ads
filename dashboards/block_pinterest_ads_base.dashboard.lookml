@@ -17,7 +17,7 @@
       allow_multiple_values: false
       required: true
       model: block_pinterest_ads
-      explore: pinterest_ads_ad_impressions
+      explore: pinterest_ad_impressions_ad_adapter
       listens_to_filters: []
       field: fact.period
     - name: Period Latest
@@ -27,6 +27,6 @@
       allow_multiple_values: false
       required: true
       model: block_pinterest_ads
-      explore: pinterest_ads_ad_impressions
+      explore: pinterest_ad_impressions_ad_adapter
       listens_to_filters: []
       field: fact.date_period_latest

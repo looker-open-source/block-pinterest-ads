@@ -6,11 +6,11 @@ view: pinterest_date_fact {
     explore_source: pinterest_ad_impressions_ad_adapter {
       column: date_period { field: fact.date_period }
       column: average_position {field: fact.weighted_average_position}
-      column: clicks {field: fact.total_clicks }
-      column: conversions {field: fact.total_conversions}
+      column: clickthrough_1 {field: fact.total_clicks }
+      column: total_conversions {field: fact.total_conversions}
       column: conversionvalue {field: fact.total_conversionvalue}
       column: cost {field: fact.total_cost}
-      column: impressions { field: fact.total_impressions}
+      column: IMPRESSION_1 { field: fact.total_impressions}
       bind_filters: {
         from_field: total.period
         to_field: fact.period

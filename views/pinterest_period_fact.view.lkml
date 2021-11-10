@@ -21,16 +21,21 @@ view: pinterest_period_fact {
     type: date_raw
   }
 
+
+
+
   sql_table_name:
-  {% if (fact.ad_id._in_query) %}
-    ${pinterest_ad_date_fact.SQL_TABLE_NAME}
-  {% elsif (fact.ad_group_id._in_query) %}
-    ${pinterest_ad_group_date_fact.SQL_TABLE_NAME}
-  {% elsif (fact.campaign_id._in_query) %}
-    ${pinterest_campaign_date_fact.SQL_TABLE_NAME}
+  {% if (ad._in_query or fact.ad_id._in_query)   or keyword._in_query or fact.keyword_id._in_query) %}
+  ${pinterest_ad_date_fact.SQL_TABLE_NAME}
+  {% elsif (ad_group._in_query or fact.ad_group_id._in_query %}
+  ${pinterest_ad_group_date_fact.SQL_TABLE_NAME}
+  {% elsif campaign._in_query or fact.campaign_id._in_query %}
+  ${pinterest_campaign_date_fact.SQL_TABLE_NAME}
   {% else %}
-    ${pinterest_account_date_fact.SQL_TABLE_NAME}
+  ${pinterest_account_date_fact.SQL_TABLE_NAME}
   {% endif %} ;;
+
+
   dimension: key_base {
     hidden: yes
     sql:
@@ -60,5 +65,7 @@ view: pinterest_period_fact {
         concat(CAST(${date_period} as STRING), CAST(${date_day_of_period} as STRING), ${key_base})
       {% endif %} ;;
   }
+
+
 
 }

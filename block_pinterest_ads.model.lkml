@@ -9,12 +9,12 @@ include: "/explores/pinterest_campaign_date_fact.explore"
 include: "/explores/pinterest_period_fact.explore"
 
 ## Include Dashboards
-#include: "/dashboards/block_pinterest_ads_base.dashboard"
-#include: "/dashboards/pinterest_ads_clicks.dashboard"
-#include: "/dashboards/pinterest_ads_conversions.dashboard"
-#include: "/dashboards/pinterest_ads_impressions.dashboard"
-#include: "/dashboards/pinterest_ads_overview.dashboard"
-#include: "/dashboards/pinterest_ads_spend.dashboard"
+include: "/dashboards/block_pinterest_ads_base.dashboard"
+include: "/dashboards/pinterest_ads_clicks.dashboard"
+include: "/dashboards/pinterest_ads_conversions.dashboard"
+include: "/dashboards/pinterest_ads_impressions.dashboard"
+include: "/dashboards/pinterest_ads_overview.dashboard"
+include: "/dashboards/pinterest_ads_spend.dashboard"
 
 
 datagroup: pinterest_ads_etl_datagroup  {

@@ -10,19 +10,21 @@ explore: pinterest_period_fact {
   label: "Pinterest Period Comparison"
   view_label: "This Period"
 
-  join: account {
-    from: pinterest_account
-    view_label: "Account"
+
+  join: keyword {
+    from: pinterest_keyword
+    view_label: "Keyword"
     type: left_outer
-    sql_on: ${fact.account_id} = ${account.account_id} ;;
+    sql_on: ${fact.keyword_id} = ${keyword.keyword_id} ;;
     relationship: many_to_one
   }
 
-  join: campaign {
-    from: pinterest_campaign
-    view_label: "Campaign"
+
+  join: ad {
+    from: pinterest_ad
+    view_label: "Ad"
     type: left_outer
-    sql_on: ${fact.campaign_id} = ${campaign.campaign_id} ;;
+    sql_on: ${fact.ad_id} = ${ad.ad_id} ;;
     relationship: many_to_one
   }
 
@@ -34,21 +36,27 @@ explore: pinterest_period_fact {
     relationship: many_to_one
   }
 
-  join: ad {
-    from: pinterest_ad
-    view_label: "Ad"
+  join: campaign {
+    from: pinterest_campaign
+    view_label: "Campaign"
     type: left_outer
-    sql_on: ${fact.ad_id} = ${ad.ad_id} ;;
+    sql_on: ${fact.campaign_id} = ${campaign.campaign_id} ;;
     relationship: many_to_one
   }
 
-  join: keyword {
-    from: pinterest_keyword
-    view_label: "Keyword"
+
+  join: account {
+    from: pinterest_account
+    view_label: "Account"
     type: left_outer
-    sql_on: ${fact.keyword_id} = ${keyword.keyword_id} ;;
+    sql_on: ${fact.account_id} = ${account.account_id} ;;
     relationship: many_to_one
   }
+
+
+
+
+
 
 
   join: last_fact {

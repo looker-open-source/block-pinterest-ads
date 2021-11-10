@@ -115,12 +115,12 @@ view: period_base {
     convert_tz: no
     label_from_parameter: period
     group_label: "Event"
-    sql: TIMESTAMP({% if period._parameter_value contains "day" %}
+    sql:TIMESTAMP ({% if period._parameter_value contains "day" %}
         {% if period._parameter_value == "'7 day'" %}DATEADD('day',7,${date_period})
         {% elsif period._parameter_value == "'28 day'" %}DATEADD('day',28,${date_period})
         {% elsif period._parameter_value == "'91 day'" %}DATEADD('day',91,${date_period})
         {% elsif period._parameter_value == "'364 day'" %}DATEADD('day',364,${date_period})
-        {% else %}DATE_ADD(${date_date}, INTERVAL 1 DAY)
+        {% else %}DATEADD('day',1,${date_date})
         {% endif %}
         {% elsif period._parameter_value contains "week" %}DATEADD('week',1,${date_period})
         {% elsif period._parameter_value contains "month" %}DATEADD('month',1,${date_period})
@@ -152,7 +152,7 @@ view: period_base {
         {% elsif period._parameter_value == "'28 day'" %}DATEADD('day',-2*28,CURRENT_DATE())
         {% elsif period._parameter_value == "'91 day'" %}DATEADD('day',-2*91,CURRENT_DATE())
         {% elsif period._parameter_value == "'364 day'" %}DATEADD('day',-2*364,CURRENT_DATE())
-        {% else %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 DAY)
+        {% else %}DATEADD('day',-2,CURRENT_DATE())
         {% endif %}
       {% elsif period._parameter_value contains "week" %}DATEADD('week',-2,CURRENT_DATE())
       {% elsif period._parameter_value contains "month" %}DATEADD('month',-2,CURRENT_DATE())
@@ -207,18 +207,20 @@ view: period_base {
       label: "Prior Period"
       type: date
       convert_tz: no
-      sql: DATE_ADD(${date_period}, INTERVAL -{% if period._parameter_value == "'7 day'" %}7
+      sql: DATEADD(        {% if period._parameter_value contains "day" %}'day'
+        {% elsif period._parameter_value contains "week" %}'week'
+        {% elsif period._parameter_value contains "month" %}'month'
+        {% elsif period._parameter_value contains "quarter" %}'quarter'
+        {% elsif period._parameter_value contains "year" %}'year'
+        {% endif %} , -{% if period._parameter_value == "'7 day'" %}7
         {% elsif period._parameter_value == "'28 day'" %}28
         {% elsif period._parameter_value == "'91 day'" %}91
         {% elsif period._parameter_value == "'364 day'" %}364
         {% else %}1
         {% endif %}
-        {% if period._parameter_value contains "day" %}day
-        {% elsif period._parameter_value contains "week" %}week
-        {% elsif period._parameter_value contains "month" %}month
-        {% elsif period._parameter_value contains "quarter" %}quarter
-        {% elsif period._parameter_value contains "year" %}year
-        {% endif %}) ;;
+        ,${date_period})
+
+;;
       allow_fill: no
     }
   }
