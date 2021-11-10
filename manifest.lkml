@@ -10,9 +10,3 @@ constant: PINTEREST_SCHEMA {
   value: "PINTEREST"
   export: override_optional
 }
-
-
-constant: DIALECT_NAME {
-  value: "SNOWFLAKE"
-  export: override_optional
-}
