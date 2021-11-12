@@ -25,9 +25,9 @@ view: pinterest_period_fact {
 
 
   sql_table_name:
-  {% if (ad._in_query or fact.ad_id._in_query)   or keyword._in_query or fact.keyword_id._in_query) %}
+  {% if (ad._in_query or fact.ad_id._in_query)   or keyword._in_query or fact.keyword_id._in_query%}
   ${pinterest_ad_date_fact.SQL_TABLE_NAME}
-  {% elsif (ad_group._in_query or fact.ad_group_id._in_query %}
+  {% elsif ad_group._in_query or fact.ad_group_id._in_query %}
   ${pinterest_ad_group_date_fact.SQL_TABLE_NAME}
   {% elsif campaign._in_query or fact.campaign_id._in_query %}
   ${pinterest_campaign_date_fact.SQL_TABLE_NAME}
@@ -37,21 +37,18 @@ view: pinterest_period_fact {
 
 
   dimension: key_base {
-    hidden: yes
+    #hidden: yes
     sql:
               TO_CHAR(${account_id})
-                {% if ( campaign._in_query or fact.campaign_id._in_query or ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query %}
+                {% if campaign._in_query or fact.campaign_id._in_query %}
                   || '-' || TO_CHAR(${campaign_id})
-                {% endif %}
-                {% if (ad_group._in_query or fact.ad_group_id._in_query or ad._in_query or fact.ad_id._in_query or keyword._in_query or fact.keyword_id._in_query) %}
+                {% elsif (ad_group._in_query or fact.ad_group_id._in_query %}
                   || '-' || TO_CHAR(${ad_group_id})
-                {% endif %}
-                {% if (ad._in_query or fact.ad_id._in_query) %}
+                {% elsif (ad._in_query or fact.ad._in_query %}
                   || '-' || TO_CHAR(${ad_id})
-                {% elsif (keyword._in_query or fact.keyword_id._in_query) %}
-                  || '-' || TO_CHAR(${keyword_id})
                 {% endif %}
-           ;;
+
+          ;;
   }
   dimension: primary_key {
     primary_key: yes
