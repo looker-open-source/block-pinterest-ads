@@ -247,7 +247,7 @@
     col: 12
     width: 12
     height: 8
-  - title: Ad Clicks Chnage
+  - title: Ad Clicks Change
     name: Ad Clicks Chnage
     model: block_pinterest_ads
     explore: pinterest_ad_date_fact
@@ -318,7 +318,7 @@
     col: 0
     width: 8
     height: 7
-  - title: Landing Page Clicks Chnage
+  - title: Landing Page Clicks Change
     name: Landing Page Clicks Chnage
     model: block_pinterest_ads
     explore: pinterest_ad_date_fact

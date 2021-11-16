@@ -1,6 +1,14 @@
-- dashboard: block_pinterest_overview
+- dashboard: pinterest_overview
   title: Pinterest Overview
-  extends: block_pinterest_ads_base
+  layout: newspaper
+  preferred_viewer: dashboards-next
+  embed_style:
+    background_color: "#ffffff"
+    show_title: false
+    title_color: "#3a4245"
+    show_filters_bar: false
+    tile_text_color: "#3a4245"
+    text_tile_text_color: ''
   elements:
   - title: Spend
     name: Spend
@@ -224,24 +232,18 @@
       palette_id: fuchsia_to_green
       options:
         steps: 5
-        __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml
-        __LINE_NUM: 216
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
     y_axes: [{label: '', orientation: left, series: [{axisId: fact.average_cost_per_conversion,
-            id: fact.average_cost_per_conversion, name: Cost per Conversion., __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 220}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-        __LINE_NUM: 220}, {label: !!null '', orientation: left, series: [{axisId: fact.average_conversion_rate,
-            id: fact.average_conversion_rate, name: Conversion Rate, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 224}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-        __LINE_NUM: 223}, {label: !!null '', orientation: right, series: [{axisId: fact.total_conversions,
-            id: fact.total_conversions, name: Conversions, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 227}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-        __LINE_NUM: 226}]
+            id: fact.average_cost_per_conversion, name: Cost per Conversion.}], showLabels: true,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}, {label: !!null '', orientation: left, series: [{axisId: fact.average_conversion_rate,
+            id: fact.average_conversion_rate, name: Conversion Rate}], showLabels: true,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}, {label: !!null '', orientation: right, series: [{axisId: fact.total_conversions,
+            id: fact.total_conversions, name: Conversions}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
@@ -308,8 +310,6 @@
       palette_id: fuchsia_to_green
       options:
         steps: 5
-        __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml
-        __LINE_NUM: 295
     show_value_labels: false
     label_density: 25
     legend_position: center
@@ -362,26 +362,41 @@
     model: block_pinterest_ads
     explore: pinterest_ad_group_date_fact
     type: looker_column
-    fields: [fact.date_period, fact.total_impressions, fact.total_clicks, fact.total_conversions]
-    sorts: [fact.date_period desc]
+    fields: [fact.total_impressions, fact.total_clicks, fact.total_conversions]
     limit: 500
     query_timezone: America/New_York
-    stacking: ''
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
     trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
     color_application:
       collection_id: legacy
       palette_id: mixed_pastels
       options:
         steps: 5
-        __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml
-        __LINE_NUM: 362
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    point_style: none
     series_colors:
       fact.cumulative_spend: "#4bb86a"
       last_fact.cumulative_spend: "#8fe4a7"
@@ -392,35 +407,13 @@
       fact.cumulative_spend: This Period
       last_fact.cumulative_spend: Prior Period
     series_types: {}
-    limit_displayed_rows: false
     y_axes: [{label: '', orientation: left, series: [{id: fact.total_impressions,
-            name: Ad Group This Period Impressions, axisId: fact.total_impressions,
-            __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 381}, {id: fact.total_clicks, name: Ad Group This Period Clicks,
-            axisId: fact.total_clicks, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 383}, {id: fact.total_conversions, name: Ad Group This Period
-              Conversions, axisId: fact.total_conversions, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-            __LINE_NUM: 384}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: log, __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml,
-        __LINE_NUM: 381}]
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: false
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    ordering: none
-    show_null_labels: false
+            name: Ad Group This Period Impressions, axisId: fact.total_impressions},
+          {id: fact.total_clicks, name: Ad Group This Period Clicks, axisId: fact.total_clicks},
+          {id: fact.total_conversions, name: Ad Group This Period Conversions, axisId: fact.total_conversions}],
+        showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: log}]
     show_dropoff: true
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
     show_null_points: true
     interpolation: linear
     custom_color_enabled: true
@@ -431,6 +424,7 @@
     comparison_reverse_colors: true
     show_comparison_label: false
     hidden_fields: [total_conversion_change]
+    defaults_version: 1
     listen:
       Period: fact.period
       Period Latest: fact.date_period_latest
@@ -558,8 +552,6 @@
       palette_id: fuchsia_to_green
       options:
         steps: 5
-        __FILE: app-marketing-pinterest-ads/pinterest_overview.dashboard.lookml
-        __LINE_NUM: 542
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -629,8 +621,11 @@
     default_value: 28 day
     allow_multiple_values: false
     required: true
+    ui_config:
+      type: advanced
+      display: popover
     model: block_pinterest_ads
-    explore: pinterest_ads_ad_impressions
+    explore: pinterest_ad_impressions_ad_adapter
     listens_to_filters: []
     field: fact.period
   - name: Period Latest
@@ -639,7 +634,10 @@
     default_value: 'Yes'
     allow_multiple_values: false
     required: true
+    ui_config:
+      type: advanced
+      display: popover
     model: block_pinterest_ads
-    explore: pinterest_ads_ad_impressions
+    explore: pinterest_ad_impressions_ad_adapter
     listens_to_filters: []
     field: fact.date_period_latest
