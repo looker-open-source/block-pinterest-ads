@@ -42,9 +42,9 @@ view: pinterest_period_fact {
               TO_CHAR(${account_id})
                 {% if campaign._in_query or fact.campaign_id._in_query %}
                   || '-' || TO_CHAR(${campaign_id})
-                {% elsif (ad_group._in_query or fact.ad_group_id._in_query %}
+                {% elsif (ad_group._in_query or fact.ad_group_id._in_query) %}
                   || '-' || TO_CHAR(${ad_group_id})
-                {% elsif (ad._in_query or fact.ad._in_query %}
+                {% elsif (ad._in_query or fact.ad._in_query) %}
                   || '-' || TO_CHAR(${ad_id})
                 {% endif %}
 

@@ -27,7 +27,6 @@ dimension: account_id {
   dimension_group: date {
     type: time
     hidden: yes
-    intervals: [day,quarter,month]
     sql: ${TABLE}.date ;;
   }
 }

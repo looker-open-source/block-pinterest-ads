@@ -2,7 +2,7 @@ project_name: "block_pinterest_ads"
 
 # TODO: Update connection
 constant: CONNECTION_NAME {
-  value: "4mile_snowflake_db_fivetran"
+  value: "CONNECTION"
   export: override_optional
 }
 

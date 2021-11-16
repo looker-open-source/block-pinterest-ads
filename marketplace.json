@@ -13,9 +13,6 @@
     },
     "PINTEREST_SCHEMA": {
       "label": "Pinterest Schema Name"
-    },
-    "CONFIG_PROJECT_NAME": {
-      "label": "Config Project Name"
     }
   },
   "models": [

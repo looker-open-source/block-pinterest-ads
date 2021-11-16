@@ -32,4 +32,10 @@ explore: pinterest_ad_group_date_fact {
       ${fact.date_date} = ${parent_fact.date_date};;
     relationship: many_to_one
   }
+  join: ad_group {
+    from: pinterest_ad_group
+    view_label: "Ad Group"
+    sql_on: ${fact.ad_group_id} = ${ad_group.ad_group_id} ;;
+    relationship: one_to_one
+  }
 }

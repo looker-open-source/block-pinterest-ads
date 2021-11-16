@@ -1,4 +1,4 @@
-connection: "4mile_snowflake_db_fivetran"
+connection: "@{CONNECTION_NAME}"
 
 ## Include Explores
 
@@ -16,10 +16,5 @@ include: "/dashboards/pinterest_ads_impressions.dashboard"
 include: "/dashboards/pinterest_ads_overview.dashboard"
 include: "/dashboards/pinterest_ads_spend.dashboard"
 
-
-datagroup: pinterest_ads_etl_datagroup  {
-  label: "Pinterest ETL"
-
-  max_cache_age: "24 hours"
- # sql_trigger: SELECT max(id) FROM my_tablename ;;
-}
+## Include Datagroups
+include: "/assets/datagroups.lkml"

@@ -16,7 +16,6 @@ dimension: ad_group_id_string {
 
 dimension_group: date {
   type: time
-  intervals: [day,quarter,month]
   sql: ${TABLE}.date ;;
 }
 

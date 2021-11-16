@@ -16,7 +16,7 @@ view: pinterest_ad_group_date_fact {
         column: conversionvalue {field: fact.total_conversionvalue}
         column: cost {field: fact.total_cost}
         column: IMPRESSION_1 { field: fact.total_impressions}
-
+        # column: bid_type {}
 
     }
   }
@@ -40,7 +40,6 @@ view: pinterest_ad_group_date_fact {
   dimension_group: date {
     type: time
     hidden: yes
-    intervals: [day,quarter,month]
     sql: ${TABLE}.date ;;
   }
 

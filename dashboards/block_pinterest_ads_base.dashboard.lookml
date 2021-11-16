@@ -1,5 +1,5 @@
 - dashboard: block_pinterest_ads_base
-  extension: required
+  hidden: yes
   layout: newspaper
   preferred_viewer: dashboards-next
   embed_style:
