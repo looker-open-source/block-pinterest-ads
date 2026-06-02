@@ -1,11 +1,13 @@
 # Pinterest Ads Block
+
+This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
+
 ## What Does This Block Do For Me? ##
 
 This Block contains views, explores and dashboards that utilize exported Pinterest Ads data. This content will bring your Pinterest Ad analysis into your Looker instance for convenient analysis.
 
 This Block is modeled on the schema from Fivetrans's [Pinterst Ads ETL](https://fivetran.com/directory/pinterest-ads).
 The schema documentation for Pinterest Ads can be found in [API docs](https://developers.pinterest.com/docs/getting-started/introduction/?).
-
 
 ## Content ##
 #### Explores ####
@@ -14,7 +16,6 @@ The schema documentation for Pinterest Ads can be found in [API docs](https://de
 * Ad Group
 * Campaign
 * Period
-
 
 #### Dashboards ####
 There are 7 dashboards included. Each of the dashboards provides in-depth analysis of ad (pin) & campaign performance over a given timeframe.
